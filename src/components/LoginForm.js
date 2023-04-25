@@ -16,11 +16,18 @@ export default function Example() {
       console.log(email, password)
     //   login(email, password);
       try {
-        const response = await axios.post(`http://localhost:6969/signup`, {
+        const response = await axios.post(`http://localhost:6969/login`, {
           email,
           password,
         }).then((res) => {
-            navigate('/login');
+            // navigate('/home');
+            if(res.status == 200){
+                localStorage.setItem('userCredentials', JSON.stringify({ email, password }));
+                navigate('/home');
+            }
+            else{
+                alert(res.statusText)
+            }
         })
         // if (response.data.success) {
         // //   alert("Signup successful!");
@@ -43,7 +50,7 @@ export default function Example() {
                 alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Sign up to your account
+                Sign in to your account
             </h2>
             </div>
 
@@ -90,7 +97,7 @@ export default function Example() {
                         type="submit"
                         className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
-                        Sign up
+                        Login
                     </button>
                 </div>
             </form>

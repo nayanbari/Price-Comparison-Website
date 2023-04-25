@@ -2,13 +2,56 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 var cors = require("cors");
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+const User = require('./model/User');
 const port = 6969;
 
 const { checkPrice, sendNotification } = require('./scrapper');
 
 app.use(express.json());
 app.use('*', cors());
+app.use(bodyParser.json());
+
+
+mongoose.connect('mongodb+srv://nayan:nayan@cluster0.mdzp5gz.mongodb.net/test', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('MongoDB database connection established successfully');
+});
+
+app.post('/signup', async (req, res) => {
+    try {
+      const user = new User(req.body);
+      await user.save();
+      res.status(201).send(user);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  });
+  
+  app.post('/login', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new Error('User not found');
+      }
+      if (user.password !== password) {
+        throw new Error('Invalid password');
+      }
+      res.send(user);
+    } catch (error) {
+      res.status(401).send(error);
+    }
+  });
 
 app.post('/api/track-price', (req, res) => {
   const productUrl = req.body.productUrl;

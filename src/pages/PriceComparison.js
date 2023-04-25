@@ -62,7 +62,7 @@ const PriceComparison = () => {
               Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
               repellendus etur quidem assumenda.
             </p>
-            <div className="mt-10 flex items-center gap-x-4">
+            {/* <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
               <div className="h-px flex-auto bg-gray-100" />
             </div>
@@ -76,7 +76,7 @@ const PriceComparison = () => {
                   {feature}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
             <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
@@ -119,7 +119,7 @@ const PriceComparison = () => {
               Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
               repellendus etur quidem assumenda.
             </p>
-            <div className="mt-10 flex items-center gap-x-4">
+            {/* <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
               <div className="h-px flex-auto bg-gray-100" />
             </div>
@@ -133,7 +133,7 @@ const PriceComparison = () => {
                   {feature}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
             <div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import NavigationBar from './components/NavigationBar';
 import Track from './pages/Track';
+import Login from './pages/Login';
 import PriceComparison from './pages/PriceComparison';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" exact element={<SignUp />} />
       <Route path="/track" exact element={<Track />} />
       <Route path="/comparison" exact element={<PriceComparison />} />
+      <Route path="/login" exact element={<Login />} />
       </Routes>
     </body>
     </Router>
