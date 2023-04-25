@@ -9,6 +9,7 @@ export default function Example() {
     const { login } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [mobile, setMobile] = useState('');
     const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
@@ -19,6 +20,7 @@ export default function Example() {
         const response = await axios.post(`http://localhost:6969/signup`, {
           email,
           password,
+          mobile
         }).then((res) => {
             navigate('/login');
         })
@@ -79,6 +81,25 @@ export default function Example() {
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     autoComplete="current-password"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                </div>
+                </div>
+
+                <div>
+                <div className="flex items-center justify-between">
+                    <label htmlFor="Phone number" className="block text-sm font-medium leading-6 text-gray-900">
+                    Mobile
+                    </label>
+                </div>
+                <div className="mt-2">
+                    <input
+                    id="mobile"
+                    name="mobile"
+                    type="mobile"
+                    onChange={(e) => setMobile(e.target.value)}
+                    autoComplete="current-mobile"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
